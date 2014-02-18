@@ -14,12 +14,14 @@ public class AnalyticsConsumer extends Thread {
 	}
 
 	public void run() {
-		
+
 		System.out.println(String.format("Consuming '%s'", this.topic));
-		while(true){
+		System.out.println(this.consumer.keys("events"));
+		while (true) {
 			List<String> top = this.consumer.blpop(0, this.topic);
-			System.out.println(top);	
+			String message = top.get(1);
+			System.out.println(message);
 		}
-		
+
 	}
 }
