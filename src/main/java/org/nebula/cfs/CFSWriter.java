@@ -34,7 +34,6 @@ public class CFSWriter {
 		Path path = new Path(pathStr);
 
 		try {
-//			this.conf.set("fs.default.name", "cfs://192.168.3.100:9160/");
 			this.cfs = new CassandraFileSystem();
 			this.cfs.initialize(URI.create("cfs://192.168.3.100:9160"), conf);
 			this.cfs.createNewFile(path);
